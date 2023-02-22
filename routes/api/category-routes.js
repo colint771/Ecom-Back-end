@@ -6,7 +6,7 @@ const { Category, Product } = require('../../models');
 router.get('/', (req, res) => {
   Category.findAll(
     {
-      attributes: ['id', 'categoru_name'],
+      attributes: ['id', 'category_name'],
       include: [
         {
           model: Product,
@@ -78,7 +78,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  Category.delete({
+  Category.destroy({
     where: {
       id: req.params.id
     }
